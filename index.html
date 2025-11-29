@@ -18,7 +18,34 @@
 	</head>
 
 	<body>
-		<header class="py-8">
+		<!-- offcanvas menu start -->
+		<div class="offcanvas fixed top-0 left-0 w-100 max-w-full h-screen z-1000 bg-text-fg text-white flex flex-col -translate-x-100 [.show]:translate-x-0 transition-all duration-500">
+			<div class="p-4 pt-7 flex items-center justify-between">
+				<!-- logo -->
+				<a href="index.html" class="inline-block"><img src="assets/img/logo-2.svg" alt="logo" /></a>
+
+				<button type="button" title="Close Offcanvas" class="offcanvas__close text-2xl">
+					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+					</svg>
+				</button>
+			</div>
+			<div class="grow overflow-y-auto p-4 pt-7">
+				<ul class="flex flex-col items-center justify-center gap-6">
+					<li><a href="#" class="font-semibold hover:text-theme">Home</a></li>
+					<li><a href="#" class="font-semibold hover:text-theme">Gallery</a></li>
+					<li><a href="#" class="font-semibold hover:text-theme">How it Works</a></li>
+					<li><a href="#" class="font-semibold hover:text-theme">Contact</a></li>
+				</ul>
+				<a href="#" class="theme-btn block w-full text-center px-8 py-2 mt-10 rounded-full font-medium text-white bg-purple hover:bg-plum-900">Get Started</a>
+			</div>
+		</div>
+
+		<!-- offcanvas overlay -->
+		<div class="fixed inset-0 bg-black/70 z-990 cursor-pointer opacity-0 invisible [.show]:opacity-100 [.show]:visible transition-all duration-500" id="offcanvas-overlay"></div>
+		<!-- offcanvas menu end -->
+
+		<header class="py-8 absolute top-0 left-0 w-full">
 			<div class="container">
 				<div class="flex items-center justify-between">
 					<div class="logo">
@@ -26,20 +53,21 @@
 					</div>
 					<div class="header__menu hidden md:block">
 						<ul class="flex justify-end gap-8 items-center text-[13px] text-black">
-							<li><a href="">Home</a></li>
-							<li><a href="">Gallery</a></li>
-							<li><a href="">How it Works</a></li>
-							<li><a href="">Contact</a></li>
+							<li><a href="" class="hover:text-theme transition-all">Home</a></li>
+							<li><a href="" class="hover:text-theme transition-all">Gallery</a></li>
+							<li><a href="" class="hover:text-theme transition-all">How it Works</a></li>
+							<li><a href="" class="hover:text-theme transition-all">Contact</a></li>
 							<li><a href="" class="theme-btn">Get Started</a></li>
 						</ul>
 					</div>
+					<button type="button" class="offcanvas-toggle md:hidden rounded-0 block"><img class="w-6" src="assets/img/icon/bars.svg" alt="bars" /></button>
 				</div>
 			</div>
 		</header>
 
 		<main>
 			<!--  section start -->
-			<section class="pt-4 pb-24">
+			<section class="pt-29 pb-24 bg-[linear-gradient(180deg,#EEF2FF_0%,#FFFFFF_100%)]">
 				<div class="container">
 					<div class="flex items-center gap-6 flex-col-reverse lg:flex-row">
 						<div class="w-full md:w-2/3 lg:w-1/2">
@@ -63,10 +91,10 @@
 									</div>
 									<p class="text-[#6B7280] text-[13px]">Supported formats: JPG, PNG, WEBP (max 10MB)</p>
 								</div>
-								<a href="" class="theme-btn w-max ml-auto block!"><img src="assets/img/icon/upload-icon-2.svg" alt="" class="inline-block" /> Upload & Start</a>
+								<a href="" class="theme-btn w-max ml-auto block! hover:bg-black! hover:border-black! hover:text-white!"><img src="assets/img/icon/upload-icon-2.svg" alt="" class="inline-block" /> Upload & Start</a>
 							</div>
 						</div>
-						<div class="w-full md:w-2/3 lg:w-1/2">
+						<div class="w-full sm:w-2/3 md:w-2/3 lg:w-1/2">
 							<div class="w-full text-right flex justify-end">
 								<img src="assets/img/hero-img.png" alt="" class="block float-end" />
 							</div>
@@ -84,8 +112,8 @@
 							<picture class="border-8 border-white block relative mb-5">
 								<img src="assets/img/paint-img.png" alt="" />
 								<div class="flex gap-4 absolute top-4 right-6">
-									<a href="" class="w-9 h-9 flex items-center justify-center rounded-full bg-[#000000B2]"><img src="assets/img/icon/zoom-in.svg" alt="" /></a>
-									<a href="" class="w-9 h-9 flex items-center justify-center rounded-full bg-[#000000B2]"><img src="assets/img/icon/reload.svg" alt="" /></a>
+									<a href="" class="w-9 h-9 flex items-center justify-center rounded-full bg-[#000000B2] hover:bg-theme"><img src="assets/img/icon/zoom-in.svg" alt="" /></a>
+									<a href="" class="w-9 h-9 flex items-center justify-center rounded-full bg-[#000000B2] hover:bg-theme"><img src="assets/img/icon/reload.svg" alt="" /></a>
 								</div>
 							</picture>
 							<p class="text-center text-[11px] text-[#D1D5DB]">Preview your painting in detail</p>
@@ -132,10 +160,25 @@
 									</span>
 								</div>
 								<label for="" class="mb-2.5 block text-[13px] font-medium text-[#D1D5DB]">Lighting</label>
+
 								<div class="grid grid-cols-3 mb-5 bg-[#1F2937] h-10 text-[13px]">
-									<button type="button">Warm</button>
-									<button type="button" class="bg-theme">Neutral</button>
-									<button type="button">Cool</button>
+									<!-- Warm -->
+									<label class="flex items-center justify-center cursor-pointer">
+										<input type="radio" name="temp" value="warm" class="peer hidden" />
+										<div class="w-full h-full flex items-center justify-center peer-checked:bg-theme">Warm</div>
+									</label>
+
+									<!-- Neutral -->
+									<label class="flex items-center justify-center cursor-pointer">
+										<input type="radio" name="temp" value="neutral" class="peer hidden" checked />
+										<div class="w-full h-full flex items-center justify-center peer-checked:bg-theme">Neutral</div>
+									</label>
+
+									<!-- Cool -->
+									<label class="flex items-center justify-center cursor-pointer">
+										<input type="radio" name="temp" value="cool" class="peer hidden" />
+										<div class="w-full h-full flex items-center justify-center peer-checked:bg-theme">Cool</div>
+									</label>
 								</div>
 								<a href="" class="theme-btn w-full">Apply Oil Effect</a>
 								<p class="text-[#6B7280] mb-0 mt-7 text-center text-[11px] text-[#6B7280]">Settings update in real time</p>
@@ -164,7 +207,7 @@
 							<div class="rounded-lg bg-[#1F2937] text-white bg-text p-6">
 								<h5 class="text-xl mb-6">Extracted Colors</h5>
 								<p class="text-center py-8 text-[#9CA3AF]">Click on the painting to extract colors</p>
-								<a href="" class="theme-btn bg-[#374151]! w-full text-[#9CA3AF]!">Save Color Palette</a>
+								<a href="" class="theme-btn bg-[#374151]! w-full text-[#9CA3AF]! border-[#374151]! hover:bg-theme! hover:text-white!">Save Color Palette</a>
 							</div>
 						</div>
 					</div>
@@ -294,8 +337,8 @@
 						</div>
 					</div>
 					<div class="flex flex-col-reverse md:flex-row items-center justify-center gap-4 mt-12">
-						<a href="" class="theme-btn flex! gap-2"><img src="assets/img/icon/download-icon.svg" alt="" class="inline-block" /> Download Palette (ASE, HEX, PNG)</a>
-						<a href="" class="theme-border-btn border-white! bg-transparent! text-white! flex! gap-2"><img src="assets/img/icon/file-plus.svg" alt="" class="inline-block" /> Add to My Gallery</a>
+						<a href="" class="theme-btn flex! gap-2 items-center"><img src="assets/img/icon/download-icon.svg" alt="" class="inline-block" /> Download Palette (ASE, HEX, PNG)</a>
+						<a href="" class="theme-border-btn border-white! bg-transparent! text-white! flex! gap-2 items-center hover:bg-theme! hover:border-theme!"><img src="assets/img/icon/file-plus.svg" alt="" class="inline-block" /> Add to My Gallery</a>
 					</div>
 				</div>
 			</section>
@@ -316,7 +359,7 @@
 							<div class="py-6 px-5">
 								<h6 class="font-bold text-[17px]">Projector Mode</h6>
 								<p class="text-[11px] text-[#9CA3AF] mb-6">Display with any digital projector</p>
-								<a href="" class="theme-border-btn w-full bg-transparent! border-white text-white!">Preview Projection</a>
+								<a href="" class="theme-border-btn w-full bg-transparent! border-white text-white! hover:border-theme! hover:text-theme!">Preview Projection</a>
 							</div>
 						</div>
 						<div class="bg-[#111826] rounded-xl overflow-hidden">
@@ -326,7 +369,7 @@
 							<div class="py-6 px-5">
 								<h6 class="font-bold text-[17px]">AR Mode</h6>
 								<p class="text-[11px] text-[#9CA3AF] mb-6">See your art in real space with Augmented Reality</p>
-								<a href="" class="theme-border-btn w-full bg-transparent! border-white text-white!">Preview in AR</a>
+								<a href="" class="theme-border-btn w-full bg-transparent! border-white text-white! hover:border-theme! hover:text-theme!">Preview in AR</a>
 							</div>
 						</div>
 						<div class="bg-[#111826] rounded-xl overflow-hidden">
@@ -336,13 +379,13 @@
 							<div class="py-6 px-5">
 								<h6 class="font-bold text-[17px]">VR Mode</h6>
 								<p class="text-[11px] text-[#9CA3AF] mb-6">Step inside a virtual art gallery</p>
-								<a href="" class="theme-border-btn w-full bg-transparent! border-white text-white!">Preview in VR</a>
+								<a href="" class="theme-border-btn w-full bg-transparent! border-white text-white! hover:border-theme! hover:text-theme!">Preview in VR</a>
 							</div>
 						</div>
 					</div>
 					<div class="flex items-center justify-center flex-col gap-5 max-w-[330px] mx-auto">
 						<a href="" class="theme-btn w-full">Start Creating Your Oil Painting</a>
-						<a href="" class="flex gap-2 text-[13px] text-[#D1D5DB]">View Past Paintings <img src="assets/img/icon/right.svg" alt="" /></a>
+						<a href="" class="flex items-center gap-2 text-[13px] text-[#D1D5DB] hover:text-theme">View Past Paintings <img src="assets/img/icon/right.svg" alt="" class="shrink-0" /></a>
 					</div>
 				</div>
 			</section>
@@ -363,9 +406,9 @@
 								<h6 class="text-[15px] font-semibold mb-1.5">Sunset on Canvas</h6>
 								<p class="text-[11px] text-[#9CA3AF] mb-3">July 22, 2025</p>
 								<div class="flex items-center justify-between">
-									<a href="" class="w-7.5 h-7.5 flex items-center justify-center"><img src="assets/img/icon/eye.svg" alt="" /></a>
-									<a href="" class="w-7.5 h-7.5 flex items-center justify-center"><img src="assets/img/icon/down-load.svg" alt="" /></a>
-									<a href="" class="w-7.5 h-7.5 flex items-center justify-center"><img src="assets/img/icon/up-load.svg" alt="" /></a>
+									<a href="" class="w-7.5 h-7.5 flex items-center justify-center hover:transform hover:scale-125"><img src="assets/img/icon/eye.svg" alt="" /></a>
+									<a href="" class="w-7.5 h-7.5 flex items-center justify-center hover:transform hover:scale-125"><img src="assets/img/icon/down-load.svg" alt="" /></a>
+									<a href="" class="w-7.5 h-7.5 flex items-center justify-center hover:transform hover:scale-125"><img src="assets/img/icon/up-load.svg" alt="" /></a>
 								</div>
 							</div>
 						</div>
@@ -377,9 +420,9 @@
 								<h6 class="text-[15px] font-semibold mb-1.5">Mountain Landscape</h6>
 								<p class="text-[11px] text-[#9CA3AF] mb-3">July 22, 2025</p>
 								<div class="flex items-center justify-between">
-									<a href="" class="w-7.5 h-7.5 flex items-center justify-center"><img src="assets/img/icon/eye.svg" alt="" /></a>
-									<a href="" class="w-7.5 h-7.5 flex items-center justify-center"><img src="assets/img/icon/down-load.svg" alt="" /></a>
-									<a href="" class="w-7.5 h-7.5 flex items-center justify-center"><img src="assets/img/icon/up-load.svg" alt="" /></a>
+									<a href="" class="w-7.5 h-7.5 flex items-center justify-center hover:transform hover:scale-125"><img src="assets/img/icon/eye.svg" alt="" /></a>
+									<a href="" class="w-7.5 h-7.5 flex items-center justify-center hover:transform hover:scale-125"><img src="assets/img/icon/down-load.svg" alt="" /></a>
+									<a href="" class="w-7.5 h-7.5 flex items-center justify-center hover:transform hover:scale-125"><img src="assets/img/icon/up-load.svg" alt="" /></a>
 								</div>
 							</div>
 						</div>
@@ -391,9 +434,9 @@
 								<h6 class="text-[15px] font-semibold mb-1.5">Seashore Waves</h6>
 								<p class="text-[11px] text-[#9CA3AF] mb-3">July 22, 2025</p>
 								<div class="flex items-center justify-between">
-									<a href="" class="w-7.5 h-7.5 flex items-center justify-center"><img src="assets/img/icon/eye.svg" alt="" /></a>
-									<a href="" class="w-7.5 h-7.5 flex items-center justify-center"><img src="assets/img/icon/down-load.svg" alt="" /></a>
-									<a href="" class="w-7.5 h-7.5 flex items-center justify-center"><img src="assets/img/icon/up-load.svg" alt="" /></a>
+									<a href="" class="w-7.5 h-7.5 flex items-center justify-center hover:transform hover:scale-125"><img src="assets/img/icon/eye.svg" alt="" /></a>
+									<a href="" class="w-7.5 h-7.5 flex items-center justify-center hover:transform hover:scale-125"><img src="assets/img/icon/down-load.svg" alt="" /></a>
+									<a href="" class="w-7.5 h-7.5 flex items-center justify-center hover:transform hover:scale-125"><img src="assets/img/icon/up-load.svg" alt="" /></a>
 								</div>
 							</div>
 						</div>
@@ -405,9 +448,9 @@
 								<h6 class="text-[15px] font-semibold mb-1.5">Abstract Emotions</h6>
 								<p class="text-[11px] text-[#9CA3AF] mb-3">July 22, 2025</p>
 								<div class="flex items-center justify-between">
-									<a href="" class="w-7.5 h-7.5 flex items-center justify-center"><img src="assets/img/icon/eye.svg" alt="" /></a>
-									<a href="" class="w-7.5 h-7.5 flex items-center justify-center"><img src="assets/img/icon/down-load.svg" alt="" /></a>
-									<a href="" class="w-7.5 h-7.5 flex items-center justify-center"><img src="assets/img/icon/up-load.svg" alt="" /></a>
+									<a href="" class="w-7.5 h-7.5 flex items-center justify-center hover:transform hover:scale-125"><img src="assets/img/icon/eye.svg" alt="" /></a>
+									<a href="" class="w-7.5 h-7.5 flex items-center justify-center hover:transform hover:scale-125"><img src="assets/img/icon/down-load.svg" alt="" /></a>
+									<a href="" class="w-7.5 h-7.5 flex items-center justify-center hover:transform hover:scale-125"><img src="assets/img/icon/up-load.svg" alt="" /></a>
 								</div>
 							</div>
 						</div>
@@ -419,9 +462,9 @@
 								<h6 class="text-[15px] font-semibold mb-1.5">Forest Dreams</h6>
 								<p class="text-[11px] text-[#9CA3AF] mb-3">July 22, 2025</p>
 								<div class="flex items-center justify-between">
-									<a href="" class="w-7.5 h-7.5 flex items-center justify-center"><img src="assets/img/icon/eye.svg" alt="" /></a>
-									<a href="" class="w-7.5 h-7.5 flex items-center justify-center"><img src="assets/img/icon/down-load.svg" alt="" /></a>
-									<a href="" class="w-7.5 h-7.5 flex items-center justify-center"><img src="assets/img/icon/up-load.svg" alt="" /></a>
+									<a href="" class="w-7.5 h-7.5 flex items-center justify-center hover:transform hover:scale-125"><img src="assets/img/icon/eye.svg" alt="" /></a>
+									<a href="" class="w-7.5 h-7.5 flex items-center justify-center hover:transform hover:scale-125"><img src="assets/img/icon/down-load.svg" alt="" /></a>
+									<a href="" class="w-7.5 h-7.5 flex items-center justify-center hover:transform hover:scale-125"><img src="assets/img/icon/up-load.svg" alt="" /></a>
 								</div>
 							</div>
 						</div>
@@ -433,15 +476,15 @@
 								<h6 class="text-[15px] font-semibold mb-1.5">Urban Solitude</h6>
 								<p class="text-[11px] text-[#9CA3AF] mb-3">July 22, 2025</p>
 								<div class="flex items-center justify-between">
-									<a href="" class="w-7.5 h-7.5 flex items-center justify-center"><img src="assets/img/icon/eye.svg" alt="" /></a>
-									<a href="" class="w-7.5 h-7.5 flex items-center justify-center"><img src="assets/img/icon/down-load.svg" alt="" /></a>
-									<a href="" class="w-7.5 h-7.5 flex items-center justify-center"><img src="assets/img/icon/up-load.svg" alt="" /></a>
+									<a href="" class="w-7.5 h-7.5 flex items-center justify-center hover:transform hover:scale-125"><img src="assets/img/icon/eye.svg" alt="" /></a>
+									<a href="" class="w-7.5 h-7.5 flex items-center justify-center hover:transform hover:scale-125"><img src="assets/img/icon/down-load.svg" alt="" /></a>
+									<a href="" class="w-7.5 h-7.5 flex items-center justify-center hover:transform hover:scale-125"><img src="assets/img/icon/up-load.svg" alt="" /></a>
 								</div>
 							</div>
 						</div>
 					</div>
 					<div class="flex items-center justify-center gap-4 mt-12 flex-col">
-						<a href="" class="theme-border-btn border-[#4B5563]! bg-transparent! text-white! flex! gap-2 w-max"> Load More</a>
+						<a href="" class="theme-border-btn border-[#4B5563]! bg-transparent! text-white! flex! gap-2 w-max hover:border-theme! hover:text-theme!"> Load More</a>
 						<a href="" class="theme-btn flex! gap-2"><img src="assets/img/icon/plus.svg" alt="" class="inline-block" /> Create New Painting</a>
 					</div>
 				</div>
@@ -468,25 +511,25 @@
 					<div class="">
 						<ul>
 							<li><h6 class="text-[15px] font-semibold mb-3 md:mb-4">Company</h6></li>
-							<li><a href="" class="block text-[13px] text-[#D1D5DB] mb-3">About</a></li>
-							<li><a href="" class="block text-[13px] text-[#D1D5DB] mb-3">Blog</a></li>
-							<li><a href="" class="block text-[13px] text-[#D1D5DB]">Careers</a></li>
+							<li><a href="" class="hover:text-theme block text-[13px] text-[#D1D5DB] mb-3">About</a></li>
+							<li><a href="" class="hover:text-theme block text-[13px] text-[#D1D5DB] mb-3">Blog</a></li>
+							<li><a href="" class="hover:text-theme block text-[13px] text-[#D1D5DB]">Careers</a></li>
 						</ul>
 					</div>
 					<div class="">
 						<ul>
 							<li><h6 class="text-[15px] font-semibold mb-3 md:mb-4">Product</h6></li>
-							<li><a href="" class="text-[13px] text-[#D1D5DB] mb-3">Features</a></li>
-							<li><a href="" class="text-[13px] text-[#D1D5DB] mb-3">Pricing</a></li>
-							<li><a href="" class="text-[13px] text-[#D1D5DB]">Gallery</a></li>
+							<li><a href="" class="hover:text-theme block text-[13px] text-[#D1D5DB] mb-3">Features</a></li>
+							<li><a href="" class="hover:text-theme block text-[13px] text-[#D1D5DB] mb-3">Pricing</a></li>
+							<li><a href="" class="hover:text-theme block text-[13px] text-[#D1D5DB]">Gallery</a></li>
 						</ul>
 					</div>
 					<div class="">
 						<ul>
 							<li><h6 class="text-[15px] font-semibold mb-3 md:mb-4">Support</h6></li>
-							<li><a href="" class="text-[13px] text-[#D1D5DB] mb-3">FAQ</a></li>
-							<li><a href="" class="text-[13px] text-[#D1D5DB] mb-3">Contact</a></li>
-							<li><a href="" class="text-[13px] text-[#D1D5DB]">Terms & Privacy</a></li>
+							<li><a href="" class="hover:text-theme block text-[13px] text-[#D1D5DB] mb-3">FAQ</a></li>
+							<li><a href="" class="hover:text-theme block text-[13px] text-[#D1D5DB] mb-3">Contact</a></li>
+							<li><a href="" class="hover:text-theme block text-[13px] text-[#D1D5DB]">Terms & Privacy</a></li>
 						</ul>
 					</div>
 				</div>
@@ -498,13 +541,13 @@
 					<p class="mb-0 text-[12px] text-[#D1D5DB] order-1 md:order-0">© 2025 YourBrand. All rights reserved.</p>
 					<ul class="flex items-center justify-end gap-4">
 						<li>
-							<a href=""><img src="assets/img/icon/social-1.svg" alt="" /></a>
+							<a href="" class="block hover:transform hover:scale-125"><img src="assets/img/icon/social-1.svg" alt="" /></a>
 						</li>
 						<li>
-							<a href=""><img src="assets/img/icon/social-2.svg" alt="" /></a>
+							<a href="" class="block hover:transform hover:scale-125"><img src="assets/img/icon/social-2.svg" alt="" /></a>
 						</li>
 						<li>
-							<a href=""><img src="assets/img/icon/social-3.svg" alt="" /></a>
+							<a href="" class="block hover:transform hover:scale-125"><img src="assets/img/icon/social-3.svg" alt="" /></a>
 						</li>
 					</ul>
 				</div>

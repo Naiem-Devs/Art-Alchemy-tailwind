@@ -18,6 +18,33 @@
 	</head>
 
 	<body>
+		<!-- offcanvas menu start -->
+		<div class="offcanvas fixed top-0 left-0 w-100 max-w-full h-screen z-1000 bg-white flex flex-col -translate-x-100 [.show]:translate-x-0 transition-all duration-500">
+			<div class="p-4 pt-7 flex items-center justify-between">
+				<!-- logo -->
+				<a href="index.html" class="inline-block"><img src="assets/img/logo.svg" alt="logo" /></a>
+
+				<button type="button" title="Close Offcanvas" class="offcanvas__close text-2xl">
+					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+					</svg>
+				</button>
+			</div>
+			<div class="grow overflow-y-auto p-4 pt-7">
+				<ul class="flex flex-col items-center justify-center gap-6">
+					<li><a href="#" class="font-semibold hover:text-theme">Home</a></li>
+					<li><a href="#" class="font-semibold hover:text-theme">Gallery</a></li>
+					<li><a href="#" class="font-semibold hover:text-theme">How it Works</a></li>
+					<li><a href="#" class="font-semibold hover:text-theme">Contact</a></li>
+				</ul>
+				<a href="#" class="theme-btn block w-full text-center px-8 py-2 mt-10 rounded-full! font-medium text-white bg-purple hover:bg-plum-900">Get Started</a>
+			</div>
+		</div>
+
+		<!-- offcanvas overlay -->
+		<div class="fixed inset-0 bg-black/70 z-990 cursor-pointer opacity-0 invisible [.show]:opacity-100 [.show]:visible transition-all duration-500" id="offcanvas-overlay"></div>
+		<!-- offcanvas menu end -->
+
 		<header class="py-8 absolute top-0 left-0 w-full z-10">
 			<div class="container">
 				<div class="flex items-center justify-between">
@@ -25,48 +52,54 @@
 						<a href=""><img src="assets/img/logo-2.svg" alt="" /></a>
 					</div>
 					<div class="header__menu hidden md:block">
-						<ul class="flex justify-end gap-8 items-center text-[13px] text-black">
-							<li><a href="">Home</a></li>
-							<li><a href="">Gallery</a></li>
-							<li><a href="">How it Works</a></li>
-							<li><a href="">Contact</a></li>
+						<ul class="flex justify-end gap-8 items-center text-[13px] text-white">
+							<li><a href="" class="hover:text-theme">Home</a></li>
+							<li><a href="" class="hover:text-theme">Gallery</a></li>
+							<li><a href="" class="hover:text-theme">How it Works</a></li>
+							<li><a href="#" class="font-semibold hover:text-theme">Contact</a></li>
 							<li><a href="" class="theme-btn rounded-full!">Get Started</a></li>
 						</ul>
 					</div>
+					<button type="button" class="offcanvas-toggle md:hidden rounded-0 block"><img class="w-6 brightness-100 filter invert-100" src="assets/img/icon/bars.svg" alt="bars" /></button>
 				</div>
 			</div>
 		</header>
 
 		<main>
 			<!--  section start -->
-			<section class="pt-50 pb-60">
+			<section class="pt-30 md:pt-35 lg:pt-50 pb-20 md:pb-30 lg:pb-40 xl:pb-50 2xl:pb-60 bg-[url('../img/hero-bg.png')] bg-cover bg-center w-full text-white">
 				<div class="container">
 					<div class="flex items-center gap-6 flex-col-reverse lg:flex-row">
-						<div class="w-full md:w-2/3 lg:w-1/2">
-							<h1 class="text-3xl md:text-[40px] mb-6">
+						<div class="w-full md:w-2/3 lg:w-1/2 lg:text-left text-center">
+							<h1 class="text-3xl md:text-[40px] lg:text-[42px] xl:text-[50px] mb-6">
 								Turn Any Image into <br />
 								a Stunning Oil <br />
 								Painting
 							</h1>
-							<p class="mb-8 text-text-2 text-[15px]">
-								Upload your images and transform them into stunning oil paintings with our <br />
-								AI-powered art transformation tool.
-							</p>
+							<p class="mb-0 text-[#D1D5DB] text-[17px]">Upload a photo, paste a link, or enter a prompt to begin.</p>
 						</div>
 						<div class="w-full md:w-2/3 lg:w-1/2">
-							<div class="p-3 md:p-8 border-[1px] border-solid border-[#E5E7EB] shadow-[0_0_15px_#0000001A] rounded-xl">
-								<div class="bg-[#EEF2FF80] border-2 border-dashed border-[#A5B4FC] rounded-lg text-center py-6.5 mb-6">
-									<img src="assets/img/icon/upload-icon.svg" alt="" class="mx-auto" />
-									<h5 class="font-medium text[15px] mb-2 mt-4">Drag & Drop Your Image Here</h5>
-									<p class="text-[#6B7280] text-[13px] mb-4">or browse from your computer</p>
+							<div class="p-3 md:p-6 border-[1px] border-solid border-[#FFFFFF33] shadow-[0_0_15px_#0000001A] rounded-xl bg-[#FFFFFF38]">
+								<ul class="flex items-center gap-6 mb-6 border-b border-solid border-[#374151] mb-6 w-full text-[13px]">
+									<li>
+										<a href="" class="flex gap-2 items-center justify-center p-4 border-b-2 border-solid border-[#FF6B2C] text-[#FF6B2C]"><img src="assets/img/icon/h-icon-1.svg" alt="" /> Upload</a>
+									</li>
+									<li>
+										<a href="" class="flex gap-2 items-center justify-center p-4 text-[#9CA3AF]"><img src="assets/img/icon/h-icon-2.svg" alt="" /> Upload</a>
+									</li>
+									<li>
+										<a href="" class="flex gap-2 items-center justify-center p-4 text-[#9CA3AF]"><img src="assets/img/icon/h-icon-3.svg" alt="" /> Prompt</a>
+									</li>
+								</ul>
+								<div class="bg-[#00000033] border-2 border-dashed border-[#9CA3AF] rounded-lg text-center py-6.5 mb-6">
+									<img src="assets/img/icon/upload-icon-3.svg" alt="" class="mx-auto" />
+									<p class="text-[#D1D5DB] text-[13px] my-4">Drag and drop your image here, or click to browse</p>
 									<div class="flex-col md:flex-row flex items-center justify-center gap-3 md:gap-2 mb-4">
-										<label for="Upload-ph" class="theme-btn cursor-pointer">Upload Photo</label>
+										<label for="Upload-ph" class="theme-btn cursor-pointer rounded-full!">Upload Photo</label>
 										<input type="file" class="hidden" id="Upload-ph" />
-										<a href="" class="theme-border-btn flex gap-2"><img src="assets/img/icon/link-icon.svg" alt="" class="inline-block" /> Paste URL</a>
 									</div>
-									<p class="text-[#6B7280] text-[13px]">Supported formats: JPG, PNG, WEBP (max 10MB)</p>
 								</div>
-								<a href="" class="theme-btn w-max ml-auto block!"><img src="assets/img/icon/upload-icon-2.svg" alt="" class="inline-block" /> Upload & Start</a>
+								<p class="text-[#9CA3AF] text-[10px] text-center m-0">Supported formats: JPG, PNG, WEBP. Max file size: 15MB</p>
 							</div>
 						</div>
 					</div>
@@ -75,68 +108,94 @@
 			<!--  section end -->
 
 			<!--  section start -->
-			<section class="py-12 bg-custom-gradient text-white">
+			<section class="py-12">
 				<div class="container">
-					<div class="flex items-center gap-6 flex-col lg:flex-row">
-						<div class="w-full md:w-2/3 lg:w-1/2">
-							<picture class="border-8 border-white block relative mb-5">
-								<img src="assets/img/paint-img.png" alt="" />
-								<div class="flex gap-4 absolute top-4 right-6">
-									<a href="" class="w-9 h-9 flex items-center justify-center rounded-full bg-[#000000B2]"><img src="assets/img/icon/zoom-in.svg" alt="" /></a>
-									<a href="" class="w-9 h-9 flex items-center justify-center rounded-full bg-[#000000B2]"><img src="assets/img/icon/reload.svg" alt="" /></a>
+					<div class="text-center mb-10 md:mb-12">
+						<h1 class="text-3xl md:text-[40px] font-bold mb-4">Turn Photos into Oil Paintings Instantly</h1>
+						<p class="text-[15px] text-[#4B5563]">
+							Our advanced AI transforms your ordinary photos into stunning oil paintings with realistic brush <br class="hidden md:block" />
+							strokes and textures.
+						</p>
+					</div>
+					<div class="flex gap-6 flex-col lg:flex-row">
+						<div class="w-full md:w-2/3 lg:w-3/5 xl:w-3/4 mx-auto lg:mx-0">
+							<div class="shadow-[0_0_15px_#0000001A] rounded-xl">
+								<div class="p-4 relative">
+									<picture class="rounded-lg overflow-hidden block h-[350px] lg:h-[500px] xl:h-[650px]"><img src="assets/img/past-oil-1.png" alt="" class="w-full object-cover h-full" /></picture>
+									<button type="button" class="p-2 bg-[#FFFFFFCC] rounded-md absolute bottom-8 right-8 hover:bg-white"><img src="assets/img/icon/full-sreen.svg" alt="" /></button>
 								</div>
-							</picture>
-							<p class="text-center text-[11px] text-[#D1D5DB]">Preview your painting in detail</p>
+								<div class="flex flex-col md:flex-row gap-3 md:gap-0 items-center justify-between p-4 pt-0">
+									<p class="m-0 text-[#6B7280] text-[11px]">Original photo → Oil painting</p>
+									<div class="flex items-center gap-2">
+										<a href="" class="theme-btn rounded-full! text-[11px] h-[38px] flex! items-center justify-center">Download</a>
+										<a href="" class="theme-border-btn rounded-full! text-[11px] h-[38px] flex! items-center justify-center hover:bg-theme! hover:border-theme! hover:text-white!">Share</a>
+									</div>
+								</div>
+							</div>
 						</div>
-						<div class="w-full md:w-2/3 lg:w-1/2">
-							<div class="p-4 md:p-8 w-full bg-[#111827] max-w-[448px] mx-auto rounded-xl">
-								<h5 class="text-xl mb-2.5">Customize Your Oil Painting</h5>
-								<p class="text-[#9CA3AF] mb-8">Adjust the details to make it unique</p>
-
-								<label for="" class="mb-2.5 block text-[13px] font-medium text-[#D1D5DB]">Brush Style</label>
-								<div class="relative w-full mb-6">
-									<select class="w-full h-[41px] bg-[#1F2937] text-white text-[16px] capitalize border border-[#374151] rounded px-3 appearance-none pr-10 outline-0 focus:border-[#fff]">
-										<option value="">Classic</option>
-										<option value="item1">Item One</option>
-										<option value="item2">Item Two</option>
-										<option value="item3">Item Three</option>
-										<option value="item4">Item Four</option>
-									</select>
-
-									<!-- Sharp ">" Style Down Arrow -->
-									<span class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2">
-										<svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-											<path d="M3 4L6 7L9 4" stroke="white" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
-										</svg>
-									</span>
+						<div class="w-full md:w-2/3 lg:w-2/5 xl:w-1/4 mx-auto lg:mx-0">
+							<div class="p-6 md:p-8 w-full lg:max-w-[448px] mx-auto rounded-xl shadow-[0_0_15px_#0000001A]">
+								<h5 class="text-[17px] mb-4 font-bold">Painting Controls</h5>
+								<div class="flex items-center justify-between mb-6">
+									<label for="" class="text-[13px] text-[#374151] flex items-center gap-2 font-medium"><img src="assets/img/icon/filter-1.svg" alt="" /> Brush Size</label>
+									<span class="text-[#6B7280] text-[11px]">Medium</span>
 								</div>
-								<label for="" class="mb-4.5 block text-[13px] font-medium text-[#D1D5DB]">Texture Intensity ( 50% ) </label>
-								<i class="h-2 w-full block rounded-lg bg-[#374151] mb-6"></i>
-								<label for="" class="mb-2.5 block text-[13px] font-medium text-[#D1D5DB]">Canvas Size</label>
-								<div class="relative w-full mb-6">
-									<select class="w-full h-[41px] bg-[#1F2937] text-white text-[16px] capitalize border border-[#374151] rounded px-3 appearance-none pr-10 outline-0 focus:border-[#fff]">
-										<option value="">Medium</option>
-										<option value="item1">Item One</option>
-										<option value="item2">Item Two</option>
-										<option value="item3">Item Three</option>
-										<option value="item4">Item Four</option>
-									</select>
+								<input type="range" min="0" max="100" value="40" class="mb-2 range text-white [--range-bg:#E5E7EB] [--range-thumb:#000] [--range-fill:0]" />
+								<div class="flex items-center justify-between mb-6">
+									<span class="text-[#6B7280] text-[10px]">Fine</span>
+									<span class="text-[#6B7280] text-[10px]">Thick</span>
+								</div>
 
-									<!-- Sharp ">" Style Down Arrow -->
-									<span class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2">
-										<svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-											<path d="M3 4L6 7L9 4" stroke="white" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
-										</svg>
-									</span>
+								<label for="" class="text-[13px] text-[#374151] flex items-center gap-2 font-medium mb-3"><img src="assets/img/icon/filter-2.svg" alt="" /> Texture</label>
+
+								<div class="flex gap-2 text-center mb-6">
+									<!-- Option 1 -->
+									<label class="w-full">
+										<input type="radio" name="type" class="peer hidden" />
+										<div class="px-4 py-2.5 rounded-md cursor-pointer text-[11.9px] border border-[#E5E7EB] bg-[#F3F4F6] text-[#374151] peer-checked:border-[#A5B4FC] peer-checked:bg-[#E0E7FF] peer-checked:text-[#4338CA] transition-all duration-200">Smooth</div>
+									</label>
+
+									<!-- Option 2 -->
+									<label class="w-full">
+										<input type="radio" name="type" class="peer hidden" checked />
+										<div class="px-4 py-2.5 rounded-md cursor-pointer text-[11.9px] border border-[#E5E7EB] bg-[#F3F4F6] text-[#374151] peer-checked:border-[#A5B4FC] peer-checked:bg-[#E0E7FF] peer-checked:text-[#4338CA] transition-all duration-200">Classic</div>
+									</label>
+
+									<!-- Option 3 -->
+									<label class="w-full">
+										<input type="radio" name="type" class="peer hidden" />
+										<div class="px-4 py-2.5 rounded-md cursor-pointer text-[11.9px] border border-[#E5E7EB] bg-[#F3F4F6] text-[#374151] peer-checked:border-[#A5B4FC] peer-checked:bg-[#E0E7FF] peer-checked:text-[#4338CA] transition-all duration-200">Impasto</div>
+									</label>
 								</div>
-								<label for="" class="mb-2.5 block text-[13px] font-medium text-[#D1D5DB]">Lighting</label>
-								<div class="grid grid-cols-3 mb-5 bg-[#1F2937] h-10 text-[13px]">
-									<button type="button">Warm</button>
-									<button type="button" class="bg-theme">Neutral</button>
-									<button type="button">Cool</button>
+
+								<label for="" class="text-[13px] text-[#374151] flex items-center gap-2 font-medium mb-3"><img src="assets/img/icon/filter-3.svg" alt="" /> Style Filters</label>
+								<div class="grid grid-cols-2 gap-2 text-center mb-6">
+									<!-- Option 1 -->
+									<label class="w-full">
+										<input type="radio" name="Filters" class="peer hidden" />
+										<div class="px-4 py-2.5 rounded-md cursor-pointer text-[11.9px] border border-[#E5E7EB] bg-[#F3F4F6] text-[#374151] peer-checked:border-[#A5B4FC] peer-checked:bg-[#E0E7FF] peer-checked:text-[#4338CA] transition-all duration-200">Impressionist</div>
+									</label>
+
+									<!-- Option 2 -->
+									<label class="w-full">
+										<input type="radio" name="Filters" class="peer hidden" checked />
+										<div class="px-4 py-2.5 rounded-md cursor-pointer text-[11.9px] border border-[#E5E7EB] bg-[#F3F4F6] text-[#374151] peer-checked:border-[#A5B4FC] peer-checked:bg-[#E0E7FF] peer-checked:text-[#4338CA] transition-all duration-200">Realism</div>
+									</label>
+
+									<!-- Option 3 -->
+									<label class="w-full">
+										<input type="radio" name="Filters" class="peer hidden" />
+										<div class="px-4 py-2.5 rounded-md cursor-pointer text-[11.9px] border border-[#E5E7EB] bg-[#F3F4F6] text-[#374151] peer-checked:border-[#A5B4FC] peer-checked:bg-[#E0E7FF] peer-checked:text-[#4338CA] transition-all duration-200">Abstract</div>
+									</label>
+
+									<!-- Option 4 -->
+									<label class="w-full">
+										<input type="radio" name="Filters" class="peer hidden" />
+										<div class="px-4 py-2.5 rounded-md cursor-pointer text-[11.9px] border border-[#E5E7EB] bg-[#F3F4F6] text-[#374151] peer-checked:border-[#A5B4FC] peer-checked:bg-[#E0E7FF] peer-checked:text-[#4338CA] transition-all duration-200">Vintage</div>
+									</label>
 								</div>
-								<a href="" class="theme-btn w-full">Apply Oil Effect</a>
-								<p class="text-[#6B7280] mb-0 mt-7 text-center text-[11px] text-[#6B7280]">Settings update in real time</p>
+
+								<a href="" class="theme-btn w-full rounded-full!">Apply Changes</a>
 							</div>
 						</div>
 					</div>
@@ -145,24 +204,85 @@
 			<!--  section end -->
 
 			<!--  section start -->
-			<section class="py-15 md:py-20 lg:py-30 bg-custom-gradient text-white">
+			<section class="pt-20 pb-10">
 				<div class="container">
-					<div class="text-center mb-8">
-						<h1 class="text-3xl md:text-[40px] mb-1">Discover the Colors in Your Painting</h1>
-						<p class="text-[#D1D5DB] mb-0 md:text-[17px] text-[14px]">Click anywhere on your oil painting to extract color codes & recipes.</p>
+					<div class="text-center mb-8 md:mb-12">
+						<h1 class="text-3xl md:text-[40px] mb-1">Extract Authentic Color Recipes</h1>
+						<p class="text-[#4B5563] mb-0 md:text-[15px] text-[14px]">Discover the hidden color palette in your images and use them for your creative projects.</p>
 					</div>
-					<div class="flex items-center gap-8 flex-col lg:flex-row lg:items-start">
-						<div class="w-full md:w-2/3 lg:w-1/2">
-							<picture class="block relative rounded-lg overflow-hidden">
-								<img src="assets/img/Discover-img.png" alt="" />
-								<a href="" class="absolute text-[11px] py-2 px-3 text-white bg-[#00000080] left-4 bottom-4 rounded-lg">Click on any part of the painting</a>
-							</picture>
+					<div class="flex items-center gap-8 flex-col lg:flex-row shadow-[0_0_15px_#0000001A] p-4 md:p-8 rounded-xl">
+						<div class="w-full md:w-3/5 lg:w-2/5">
+							<div class="relative">
+								<picture class="block relative rounded-lg overflow-hidden shadow-[0_0_15px_#0000001A]">
+									<img src="assets/img/color-img.png" alt="" />
+								</picture>
+								<h6 class="font-medium text-[13px] absolute bottom-4 left-4 text-white">Coastal Landscape <span class="block text-[11px]">5 colors extracted</span></h6>
+							</div>
 						</div>
-						<div class="w-full md:w-2/3 lg:w-1/2">
-							<div class="rounded-lg bg-[#1F2937] text-white bg-text p-6">
-								<h5 class="text-xl mb-6">Extracted Colors</h5>
-								<p class="text-center py-8 text-[#9CA3AF]">Click on the painting to extract colors</p>
-								<a href="" class="theme-btn bg-[#374151]! w-full text-[#9CA3AF]!">Save Color Palette</a>
+						<div class="w-full lg:w-3/5">
+							<div class="">
+								<h6 class="mb-2 text-[17px] font-bold flex gap-2 items-center"><img src="assets/img/icon/color-icon.svg" alt="" /> Color Palette</h6>
+								<p class="text-[13px] text-[#4B5563] mb-6">These colors have been extracted from your painting with our advanced algorithm.</p>
+								<div class="grid grid-cols-5 rounded-lg overflow-hidden shadow-[0_0_15px_#0000001A] mb-8">
+									<div class="h-24 bg-[#2A4858]"></div>
+									<div class="h-24 bg-[#3B7080]"></div>
+									<div class="h-24 bg-[#5BA3A7]"></div>
+									<div class="h-24 bg-[#9DBEB9]"></div>
+									<div class="h-24 bg-[#E2E8E4]"></div>
+								</div>
+								<div class="grid grid-cols-3 md:grid-cols-5 gap-3 mb-6">
+									<div class="rounded-md overflow-hidden shadow-[0_0_15px_#0000001A]">
+										<i class="h-12 w-full block bg-[#2A4858]"></i>
+										<div class="border border-solid border-[#E5E7EB] p-2 rounded-bl-md! rounded-br-md! overflow-hidden">
+											<h6 class="font-medium text-xs mb-1.5">Deep Sea</h6>
+											<div class="flex items-center justify-between">
+												<span class="text-[10px] text-[#6B7280]">#2A4858</span>
+												<button type="button"><img src="assets/img/icon/copy-btn.svg" alt="" /></button>
+											</div>
+										</div>
+									</div>
+									<div class="rounded-md overflow-hidden shadow-[0_0_15px_#0000001A]">
+										<i class="h-12 w-full block bg-[#3B7080]"></i>
+										<div class="border border-solid border-[#E5E7EB] p-2 rounded-bl-md! rounded-br-md! overflow-hidden">
+											<h6 class="font-medium text-xs mb-1.5">Ocean Teal</h6>
+											<div class="flex items-center justify-between rounded-bl-md! rounded-br-md!">
+												<span class="text-[10px] text-[#6B7280]">#3B7080</span>
+												<button type="button"><img src="assets/img/icon/copy-btn.svg" alt="" /></button>
+											</div>
+										</div>
+									</div>
+									<div class="rounded-md overflow-hidden shadow-[0_0_15px_#0000001A]">
+										<i class="h-12 w-full block bg-[#5BA3A7]"></i>
+										<div class="border border-solid border-[#E5E7EB] p-2 rounded-bl-md! rounded-br-md! overflow-hidden">
+											<h6 class="font-medium text-xs mb-1.5">Coastal Blue</h6>
+											<div class="flex items-center justify-between rounded-bl-md! rounded-br-md!">
+												<span class="text-[10px] text-[#6B7280]">#5BA3A7</span>
+												<button type="button"><img src="assets/img/icon/copy-btn.svg" alt="" /></button>
+											</div>
+										</div>
+									</div>
+									<div class="rounded-md overflow-hidden shadow-[0_0_15px_#0000001A]">
+										<i class="h-12 w-full block bg-[#9DBEB9]"></i>
+										<div class="border border-solid border-[#E5E7EB] p-2 rounded-bl-md! rounded-br-md! overflow-hidden">
+											<h6 class="font-medium text-xs mb-1.5">Seafoam</h6>
+											<div class="flex items-center justify-between rounded-bl-md! rounded-br-md!">
+												<span class="text-[10px] text-[#6B7280]">#9DBEB9</span>
+												<button type="button"><img src="assets/img/icon/copy-btn.svg" alt="" /></button>
+											</div>
+										</div>
+									</div>
+									<div class="rounded-md overflow-hidden shadow-[0_0_15px_#0000001A]">
+										<i class="h-12 w-full block bg-[#E2E8E4]"></i>
+										<div class="border border-solid border-[#E5E7EB] p-2 rounded-bl-md! rounded-br-md! overflow-hidden">
+											<h6 class="font-medium text-xs mb-1.5">Misty Gray</h6>
+											<div class="flex items-center justify-between rounded-bl-md! rounded-br-md!">
+												<span class="text-[10px] text-[#6B7280]">#E2E8E4</span>
+												<button type="button"><img src="assets/img/icon/copy-btn.svg" alt="" /></button>
+											</div>
+										</div>
+									</div>
+								</div>
+								<a href="" class="theme-btn rounded-full! flex! gap-2 items-center w-max ml-auto hover:bg-black! hover:border-black! hover:text-white!"><img src="assets/img/icon/down-load.svg" alt="" /> Save Palette</a>
 							</div>
 						</div>
 					</div>
@@ -171,340 +291,356 @@
 			<!--  section end -->
 
 			<!--  section start -->
-			<section class="py-15 md:py-20 lg:py-27 bg-custom-gradient text-white">
+			<section class="py-15 md:py-20 lg:py-27">
 				<div class="container max-w-[1300px]!">
 					<div class="text-center mb-10 md:mb-12">
-						<h1 class="mb-3 text-3xl md:text-[40px]">Your Color Recipes</h1>
-						<p class="text-[14px] md:text-[17px] text-[#9CA3AF]">A complete tray of extracted colors with ready-to-use codes & paint mixes.</p>
+						<h1 class="mb-3 text-3xl md:text-[40px]">Hidden Colors, Ready to Use</h1>
+						<p class="text-[14px] md:text-[17px] text-[#9CA3AF]">
+							Discover the complete color palette extracted from your painting, perfect for designers and <br />
+							artists.
+						</p>
 					</div>
-					<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-						<div class="p-5 bg-[#0000004D] border border-solid border-[#FFFFFF1A] rounded-xl">
-							<div class="flex items-center justify-between mb-3">
-								<i class="bg-[#FF6B2C] w-21 h-21 rounded-xl"></i>
-								<button type="button" class="w-9 h-9 flex items-center justify-center"><img src="assets/img/icon/copy.svg" alt="" /></button>
+					<div class="bg-[#F9FAFB] p-8 rounded-xl shadow-[0_4px_6px_#0000001A]">
+						<div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-3 mb-10">
+							<div class="rounded-md overflow-hidden shadow-[0_1px_2px_#0000000D]">
+								<i class="h-24 w-full block bg-[#2A4858] flex items-center justify-center not-italic font-medium text-[10px]"> Copy </i>
+								<div class="border border-solid border-t-0 border-[#E5E7EB] p-2 rounded-bl-md! rounded-br-md! overflow-hidden">
+									<h6 class="font-medium text-xs mb-1.5">Deep Sea</h6>
+									<div class="flex items-center justify-between">
+										<span class="text-[10px] text-[#6B7280]">#2A4858</span>
+									</div>
+								</div>
 							</div>
-							<h6 class="text-[15px] mb-3.5 font-bold">Burnt Orange</h6>
-							<ul>
-								<li class="flex items-center justify-between text-[#9CA3AF] text-[11px] mb-2">HEX <span class="text-[13px] text-white">#FF6B2C</span></li>
-								<li class="flex items-center justify-between text-[#9CA3AF] text-[11px]">RGB <span class="text-[13px] text-white">( 255, 107, 44 )</span></li>
-							</ul>
-							<hr class="border-[#FFFFFF1A] my-3" />
-							<span class="text-[11px] text-[#9CA3AF] block mb-1">Recipe Formula</span>
-							<p class="mb-0 text-[13px] font-medium">60% Red, 30% Yellow, 10% Black</p>
-						</div>
-						<div class="p-5 bg-[#0000004D] border border-solid border-[#FFFFFF1A] rounded-xl">
-							<div class="flex items-center justify-between mb-3">
-								<i class="bg-[#4A90E2] w-21 h-21 rounded-xl"></i>
-								<button type="button" class="w-9 h-9 flex items-center justify-center"><img src="assets/img/icon/copy.svg" alt="" /></button>
+							<div class="rounded-md overflow-hidden shadow-[0_1px_2px_#0000000D]">
+								<i class="h-24 w-full block bg-[#3B7080] flex items-center justify-center not-italic font-medium text-[10px]"> Copy </i>
+								<div class="border border-solid border-t-0 border-[#E5E7EB] p-2 rounded-bl-md! rounded-br-md! overflow-hidden">
+									<h6 class="font-medium text-xs mb-1.5">Ocean Teal</h6>
+									<div class="flex items-center justify-between">
+										<span class="text-[10px] text-[#6B7280]">#3B7080</span>
+									</div>
+								</div>
 							</div>
-							<h6 class="text-[15px] mb-3.5 font-bold">Royal Blue</h6>
-							<ul>
-								<li class="flex items-center justify-between text-[#9CA3AF] text-[11px] mb-2">HEX <span class="text-[13px] text-white">#4A90E2</span></li>
-								<li class="flex items-center justify-between text-[#9CA3AF] text-[11px]">RGB <span class="text-[13px] text-white">( 74, 144, 226 )</span></li>
-							</ul>
-							<hr class="border-[#FFFFFF1A] my-3" />
-							<span class="text-[11px] text-[#9CA3AF] block mb-1">Recipe Formula</span>
-							<p class="mb-0 text-[13px] font-medium">70% Blue, 20% Cyan, 10% White</p>
-						</div>
-						<div class="p-5 bg-[#0000004D] border border-solid border-[#FFFFFF1A] rounded-xl">
-							<div class="flex items-center justify-between mb-3">
-								<i class="bg-[#50E3C2] w-21 h-21 rounded-xl"></i>
-								<button type="button" class="w-9 h-9 flex items-center justify-center"><img src="assets/img/icon/copy.svg" alt="" /></button>
+							<div class="rounded-md overflow-hidden shadow-[0_1px_2px_#0000000D]">
+								<i class="h-24 w-full block bg-[#5BA3A7] flex items-center justify-center not-italic font-medium text-[10px]"> Copy </i>
+								<div class="border border-solid border-t-0 border-[#E5E7EB] p-2 rounded-bl-md! rounded-br-md! overflow-hidden">
+									<h6 class="font-medium text-xs mb-1.5">Coastal Blue</h6>
+									<div class="flex items-center justify-between">
+										<span class="text-[10px] text-[#6B7280]">#5BA3A7</span>
+									</div>
+								</div>
 							</div>
-							<h6 class="text-[15px] mb-3.5 font-bold">Mint Green</h6>
-							<ul>
-								<li class="flex items-center justify-between text-[#9CA3AF] text-[11px] mb-2">HEX <span class="text-[13px] text-white">#50E3C2</span></li>
-								<li class="flex items-center justify-between text-[#9CA3AF] text-[11px]">RGB <span class="text-[13px] text-white">( 80, 227, 194 )</span></li>
-							</ul>
-							<hr class="border-[#FFFFFF1A] my-3" />
-							<span class="text-[11px] text-[#9CA3AF] block mb-1">Recipe Formula</span>
-							<p class="mb-0 text-[13px] font-medium">60% Green, 30% Cyan, 10% White</p>
-						</div>
-						<div class="p-5 bg-[#0000004D] border border-solid border-[#FFFFFF1A] rounded-xl">
-							<div class="flex items-center justify-between mb-3">
-								<i class="bg-[#F5A623] w-21 h-21 rounded-xl"></i>
-								<button type="button" class="w-9 h-9 flex items-center justify-center"><img src="assets/img/icon/copy.svg" alt="" /></button>
+							<div class="rounded-md overflow-hidden shadow-[0_1px_2px_#0000000D]">
+								<i class="h-24 w-full block bg-[#9DBEB9] flex items-center justify-center not-italic font-medium text-[10px]"> Copy </i>
+								<div class="border border-solid border-t-0 border-[#E5E7EB] p-2 rounded-bl-md! rounded-br-md! overflow-hidden">
+									<h6 class="font-medium text-xs mb-1.5">Seafoam</h6>
+									<div class="flex items-center justify-between">
+										<span class="text-[10px] text-[#6B7280]">#9DBEB9</span>
+									</div>
+								</div>
 							</div>
-							<h6 class="text-[15px] mb-3.5 font-bold">Amber Gold</h6>
-							<ul>
-								<li class="flex items-center justify-between text-[#9CA3AF] text-[11px] mb-2">HEX <span class="text-[13px] text-white">#F5A623</span></li>
-								<li class="flex items-center justify-between text-[#9CA3AF] text-[11px]">RGB <span class="text-[13px] text-white">( 245, 166, 35 )</span></li>
-							</ul>
-							<hr class="border-[#FFFFFF1A] my-3" />
-							<span class="text-[11px] text-[#9CA3AF] block mb-1">Recipe Formula</span>
-							<p class="mb-0 text-[13px] font-medium">70% Yellow, 25% Red, 5% Brown</p>
-						</div>
-						<div class="p-5 bg-[#0000004D] border border-solid border-[#FFFFFF1A] rounded-xl">
-							<div class="flex items-center justify-between mb-3">
-								<i class="bg-[#D0021B] w-21 h-21 rounded-xl"></i>
-								<button type="button" class="w-9 h-9 flex items-center justify-center"><img src="assets/img/icon/copy.svg" alt="" /></button>
+							<div class="rounded-md overflow-hidden shadow-[0_1px_2px_#0000000D]">
+								<i class="h-24 w-full block bg-[#E2E8E4] flex items-center justify-center not-italic font-medium text-[10px]"> Copy </i>
+								<div class="border border-solid border-t-0 border-[#E5E7EB] p-2 rounded-bl-md! rounded-br-md! overflow-hidden">
+									<h6 class="font-medium text-xs mb-1.5">Misty Gray</h6>
+									<div class="flex items-center justify-between">
+										<span class="text-[10px] text-[#6B7280]">#E2E8E4</span>
+									</div>
+								</div>
 							</div>
-							<h6 class="text-[15px] mb-3.5 font-bold">Ruby Red</h6>
-							<ul>
-								<li class="flex items-center justify-between text-[#9CA3AF] text-[11px] mb-2">HEX <span class="text-[13px] text-white">#D0021B</span></li>
-								<li class="flex items-center justify-between text-[#9CA3AF] text-[11px]">RGB <span class="text-[13px] text-white">( 208, 2, 27 )</span></li>
-							</ul>
-							<hr class="border-[#FFFFFF1A] my-3" />
-							<span class="text-[11px] text-[#9CA3AF] block mb-1">Recipe Formula</span>
-							<p class="mb-0 text-[13px] font-medium">85% Red, 10% Magenta, 5% Black</p>
-						</div>
-						<div class="p-5 bg-[#0000004D] border border-solid border-[#FFFFFF1A] rounded-xl">
-							<div class="flex items-center justify-between mb-3">
-								<i class="bg-[#9013FE] w-21 h-21 rounded-xl"></i>
-								<button type="button" class="w-9 h-9 flex items-center justify-center"><img src="assets/img/icon/copy.svg" alt="" /></button>
+							<div class="rounded-md overflow-hidden shadow-[0_1px_2px_#0000000D]">
+								<i class="h-24 w-full block bg-[#D4C1A5] flex items-center justify-center not-italic font-medium text-[10px]"> Copy </i>
+								<div class="border border-solid border-t-0 border-[#E5E7EB] p-2 rounded-bl-md! rounded-br-md! overflow-hidden">
+									<h6 class="font-medium text-xs mb-1.5">Sand Dune</h6>
+									<div class="flex items-center justify-between">
+										<span class="text-[10px] text-[#6B7280]">#D4C1A5</span>
+									</div>
+								</div>
 							</div>
-							<h6 class="text-[15px] mb-3.5 font-bold">Electric Purple</h6>
-							<ul>
-								<li class="flex items-center justify-between text-[#9CA3AF] text-[11px] mb-2">HEX <span class="text-[13px] text-white">#9013FE</span></li>
-								<li class="flex items-center justify-between text-[#9CA3AF] text-[11px]">RGB <span class="text-[13px] text-white">( 144, 19, 254 )</span></li>
-							</ul>
-							<hr class="border-[#FFFFFF1A] my-3" />
-							<span class="text-[11px] text-[#9CA3AF] block mb-1">Recipe Formula</span>
-							<p class="mb-0 text-[13px] font-medium">60% Blue, 40% Magenta</p>
-						</div>
-						<div class="p-5 bg-[#0000004D] border border-solid border-[#FFFFFF1A] rounded-xl">
-							<div class="flex items-center justify-between mb-3">
-								<i class="bg-[#7ED321] w-21 h-21 rounded-xl"></i>
-								<button type="button" class="w-9 h-9 flex items-center justify-center"><img src="assets/img/icon/copy.svg" alt="" /></button>
+							<div class="rounded-md overflow-hidden shadow-[0_1px_2px_#0000000D]">
+								<i class="h-24 w-full block bg-[#C09F80] flex items-center justify-center not-italic font-medium text-[10px]"> Copy </i>
+								<div class="border border-solid border-t-0 border-[#E5E7EB] p-2 rounded-bl-md! rounded-br-md! overflow-hidden">
+									<h6 class="font-medium text-xs mb-1.5">Driftwood</h6>
+									<div class="flex items-center justify-between">
+										<span class="text-[10px] text-[#6B7280]">#C09F80</span>
+									</div>
+								</div>
 							</div>
-							<h6 class="text-[15px] mb-3.5 font-bold">Lime Green</h6>
-							<ul>
-								<li class="flex items-center justify-between text-[#9CA3AF] text-[11px] mb-2">HEX <span class="text-[13px] text-white">#7ED321</span></li>
-								<li class="flex items-center justify-between text-[#9CA3AF] text-[11px]">RGB <span class="text-[13px] text-white">( 126, 211, 33 )</span></li>
-							</ul>
-							<hr class="border-[#FFFFFF1A] my-3" />
-							<span class="text-[11px] text-[#9CA3AF] block mb-1">Recipe Formula</span>
-							<p class="mb-0 text-[13px] font-medium">80% Green, 20% Yellow</p>
-						</div>
-						<div class="p-5 bg-[#0000004D] border border-solid border-[#FFFFFF1A] rounded-xl">
-							<div class="flex items-center justify-between mb-3">
-								<i class="bg-[#BD10E0] w-21 h-21 rounded-xl"></i>
-								<button type="button" class="w-9 h-9 flex items-center justify-center"><img src="assets/img/icon/copy.svg" alt="" /></button>
+							<div class="rounded-md overflow-hidden shadow-[0_1px_2px_#0000000D]">
+								<i class="h-24 w-full block bg-[#B07D62] flex items-center justify-center not-italic font-medium text-[10px]"> Copy </i>
+								<div class="border border-solid border-t-0 border-[#E5E7EB] p-2 rounded-bl-md! rounded-br-md! overflow-hidden">
+									<h6 class="font-medium text-xs mb-1.5">Terracotta</h6>
+									<div class="flex items-center justify-between">
+										<span class="text-[10px] text-[#6B7280]">#B07D62</span>
+									</div>
+								</div>
 							</div>
-							<h6 class="text-[15px] mb-3.5 font-bold">Vibrant Magenta</h6>
-							<ul>
-								<li class="flex items-center justify-between text-[#9CA3AF] text-[11px] mb-2">HEX <span class="text-[13px] text-white">#BD10E0</span></li>
-								<li class="flex items-center justify-between text-[#9CA3AF] text-[11px]">RGB <span class="text-[13px] text-white">( 189, 16, 224 )</span></li>
-							</ul>
-							<hr class="border-[#FFFFFF1A] my-3" />
-							<span class="text-[11px] text-[#9CA3AF] block mb-1">Recipe Formula</span>
-							<p class="mb-0 text-[13px] font-medium">70% Magenta, 30% Blue</p>
+							<div class="rounded-md overflow-hidden shadow-[0_1px_2px_#0000000D]">
+								<i class="h-24 w-full block bg-[#8D5B4C] flex items-center justify-center not-italic font-medium text-[10px]"> Copy </i>
+								<div class="border border-solid border-t-0 border-[#E5E7EB] p-2 rounded-bl-md! rounded-br-md! overflow-hidden">
+									<h6 class="font-medium text-xs mb-1.5">Rustic Clay</h6>
+									<div class="flex items-center justify-between">
+										<span class="text-[10px] text-[#6B7280]">#8D5B4C</span>
+									</div>
+								</div>
+							</div>
+							<div class="rounded-md overflow-hidden shadow-[0_1px_2px_#0000000D]">
+								<i class="h-24 w-full block bg-[#5C4742] flex items-center justify-center not-italic font-medium text-[10px]"> Copy </i>
+								<div class="border border-solid border-t-0 border-[#E5E7EB] p-2 rounded-bl-md! rounded-br-md! overflow-hidden">
+									<h6 class="font-medium text-xs mb-1.5">Deep Brown</h6>
+									<div class="flex items-center justify-between">
+										<span class="text-[10px] text-[#6B7280]">#5C4742</span>
+									</div>
+								</div>
+							</div>
+							<div class="rounded-md overflow-hidden shadow-[0_1px_2px_#0000000D]">
+								<i class="h-24 w-full block bg-[#F5F1E8] flex items-center justify-center not-italic font-medium text-[10px]"> Copy </i>
+								<div class="border border-solid border-t-0 border-[#E5E7EB] p-2 rounded-bl-md! rounded-br-md! overflow-hidden">
+									<h6 class="font-medium text-xs mb-1.5">Canvas White</h6>
+									<div class="flex items-center justify-between">
+										<span class="text-[10px] text-[#6B7280]">#F5F1E8</span>
+									</div>
+								</div>
+							</div>
+							<div class="rounded-md overflow-hidden shadow-[0_1px_2px_#0000000D]">
+								<i class="h-24 w-full block bg-[#E8D6C3] flex items-center justify-center not-italic font-medium text-[10px]"> Copy </i>
+								<div class="border border-solid border-t-0 border-[#E5E7EB] p-2 rounded-bl-md! rounded-br-md! overflow-hidden">
+									<h6 class="font-medium text-xs mb-1.5">Parchment</h6>
+									<div class="flex items-center justify-between">
+										<span class="text-[10px] text-[#6B7280]">#E8D6C3</span>
+									</div>
+								</div>
+							</div>
 						</div>
-					</div>
-					<div class="flex flex-col-reverse md:flex-row items-center justify-center gap-4 mt-12">
-						<a href="" class="theme-btn flex! gap-2"><img src="assets/img/icon/download-icon.svg" alt="" class="inline-block" /> Download Palette (ASE, HEX, PNG)</a>
-						<a href="" class="theme-border-btn border-white! bg-transparent! text-white! flex! gap-2"><img src="assets/img/icon/file-plus.svg" alt="" class="inline-block" /> Add to My Gallery</a>
+						<div class="flex flex-col-reverse md:flex-row items-center justify-center gap-4 mt-12">
+							<a href="" class="theme-btn flex! items-center gap-2 rounded-full! hover:bg-black! hover:border-black! hover:text-white!"><img src="assets/img/icon/download-icon.svg" alt="" class="inline-block" /> Save Palette</a>
+							<a href="" class="theme-border-btn items-center flex! gap-2 rounded-full!"><img src="assets/img/icon/share-icon.svg" alt="" class="inline-block" /> Share Palette</a>
+							<a href="" class="theme-border-btn items-center flex! gap-2 rounded-full!"><img src="assets/img/icon/image-img.svg" alt="" class="inline-block" /> Share Palette</a>
+						</div>
 					</div>
 				</div>
 			</section>
 			<!--  section end -->
 
 			<!--  section start -->
-			<section class="py-15 pb-10 md:py-20 lg:pb-25 bg-custom-gradient text-white">
+			<section class="py-15 pb-10 md:py-20 bg-[#111827] text-white">
 				<div class="container">
-					<div class="text-center mb-10 md:mb-15 lg:mb-20">
-						<h1 class="mb-1.5 text-3xl md:text-4xl lg:text-[50px]">Project Your Masterpiece</h1>
-						<p class="text-[14px] md:text-[17px] text-[#D1D5DB]">Bring your oil painting into the real or virtual world.</p>
+					<div class="text-center mb-8 md:mb-10 lg:mb-12">
+						<h1 class="mb-1.5 text-3xl md:text-4xl lg:text-[40px]">Project Your Art Anywhere</h1>
+						<p class="text-[14px] md:text-[15px] text-[#D1D5DB]">See how your transformed paintings look in real-world settings with our projection tools.</p>
 					</div>
-					<div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10 md:mb-15 lg:mb-24">
-						<div class="bg-[#111826] rounded-xl overflow-hidden">
-							<picture class="h-[200px] block overflow-hidden">
-								<img src="assets/img/project-1.png" alt="" class="h-full object-cover" />
-							</picture>
-							<div class="py-6 px-5">
-								<h6 class="font-bold text-[17px]">Projector Mode</h6>
-								<p class="text-[11px] text-[#9CA3AF] mb-6">Display with any digital projector</p>
-								<a href="" class="theme-border-btn w-full bg-transparent! border-white text-white!">Preview Projection</a>
+					<div class="bg-[#000] h-[468px] sm:h-[568px] md:h-[668px] lg:h-[768px] max-w-[1024px] mx-auto rounded-xl relative mb-16">
+						<div class="absolute bottom-12 md:bottom-8 lg:bottom-4 left-8 text-center md:text-left">
+							<h5 class="font-bold text-xl mb-2">Modern Living Room</h5>
+							<p class="text-[13px] text-[#E5E7EB] mb-3 md:mb-8">See how your painting transforms this space</p>
+							<div class="flex flex-col md:flex-row items-center gap-2 md:gap-4">
+								<a href="" class="h-10 px-4 bg-[#FFFFFF33] text-[13px] font-medium rounded-md content-center">Try Different Room</a>
+								<a href="" class="h-10 px-4 bg-theme text-[13px] font-medium rounded-full content-center hover:bg-white hover:text-black text-white">Download Preview </a>
 							</div>
 						</div>
-						<div class="bg-[#111826] rounded-xl overflow-hidden">
-							<picture class="h-[200px] block overflow-hidden">
-								<img src="assets/img/project-2.png" alt="" class="h-full object-cover" />
-							</picture>
-							<div class="py-6 px-5">
-								<h6 class="font-bold text-[17px]">AR Mode</h6>
-								<p class="text-[11px] text-[#9CA3AF] mb-6">See your art in real space with Augmented Reality</p>
-								<a href="" class="theme-border-btn w-full bg-transparent! border-white text-white!">Preview in AR</a>
-							</div>
-						</div>
-						<div class="bg-[#111826] rounded-xl overflow-hidden">
-							<picture class="h-[200px] block overflow-hidden">
-								<img src="assets/img/project-3.png" alt="" class="h-full object-cover" />
-							</picture>
-							<div class="py-6 px-5">
-								<h6 class="font-bold text-[17px]">VR Mode</h6>
-								<p class="text-[11px] text-[#9CA3AF] mb-6">Step inside a virtual art gallery</p>
-								<a href="" class="theme-border-btn w-full bg-transparent! border-white text-white!">Preview in VR</a>
-							</div>
+						<div class="flex items-center justify-center gap-4 absolute bottom-[-24px] left-1/2 transform -translate-x-1/2 bg-[#1F2937CC] rounded-full py-2 lg:py-3 px-6 text-[10px] text-center text-[#FFFFFFCC]">
+							<button type="button">
+								<i class="block mb-1"><img src="assets/img/icon/tv.svg" alt="" /></i> <span>TV</span>
+							</button>
+							<button type="button" class="text-[#818CF8]">
+								<i class="block mb-1"><img src="assets/img/icon/vr.svg" alt="" /></i> <span>VR</span>
+							</button>
+							<button type="button">
+								<i class="block mb-1"><img src="assets/img/icon/phn.svg" alt="" /></i> <span>AR</span>
+							</button>
 						</div>
 					</div>
-					<div class="flex items-center justify-center flex-col gap-5 max-w-[330px] mx-auto">
-						<a href="" class="theme-btn w-full">Start Creating Your Oil Painting</a>
-						<a href="" class="flex gap-2 text-[13px] text-[#D1D5DB]">View Past Paintings <img src="assets/img/icon/right.svg" alt="" /></a>
-					</div>
-				</div>
-			</section>
-			<!--  section end -->
-
-			<!--  section start -->
-			<section class="py-15 md:py-20 lg:py-25 bg-black text-white">
-				<div class="container max-w-[1300px]!">
-					<div class="text-center mb-10 md:mb-15 lg:mb-20">
-						<h1 class="mb-0 text-3xl md:text-4xl lg:text-5xl">Your Past Oil Paintings</h1>
-					</div>
-					<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-7">
-						<div class="bg-[#202936] rounded-xl overflow-hidden">
-							<picture class="h-[376px] overflow-hidden">
-								<img src="assets/img/past-oil-1.png" alt="" />
-							</picture>
-							<div class="p-3.5">
-								<h6 class="text-[15px] font-semibold mb-1.5">Sunset on Canvas</h6>
-								<p class="text-[11px] text-[#9CA3AF] mb-3">July 22, 2025</p>
-								<div class="flex items-center justify-between">
-									<a href="" class="w-7.5 h-7.5 flex items-center justify-center"><img src="assets/img/icon/eye.svg" alt="" /></a>
-									<a href="" class="w-7.5 h-7.5 flex items-center justify-center"><img src="assets/img/icon/down-load.svg" alt="" /></a>
-									<a href="" class="w-7.5 h-7.5 flex items-center justify-center"><img src="assets/img/icon/up-load.svg" alt="" /></a>
-								</div>
-							</div>
+					<div class="flex flex-col md:flex-row gap-6">
+						<div class="w-full md:w-1/3 bg-text-fg text-white rounded-xl text-center p-6">
+							<i class="block w-9 h-9 content-center mx-auto mb-4"><img src="assets/img/icon/tv-lg.svg" alt="" /></i>
+							<h6 class="text-[17px] font-bold mb-2">Home Projection</h6>
+							<p class="leading-[24px] max-w-[320px] mx-auto text-[#D1D5DB] text-[13px]">See how your art looks on walls, TVs, and other surfaces in your home.</p>
 						</div>
-						<div class="bg-[#202936] rounded-xl overflow-hidden">
-							<picture class="h-[376px] overflow-hidden">
-								<img src="assets/img/past-oil-2.png" alt="" />
-							</picture>
-							<div class="p-3.5">
-								<h6 class="text-[15px] font-semibold mb-1.5">Mountain Landscape</h6>
-								<p class="text-[11px] text-[#9CA3AF] mb-3">July 22, 2025</p>
-								<div class="flex items-center justify-between">
-									<a href="" class="w-7.5 h-7.5 flex items-center justify-center"><img src="assets/img/icon/eye.svg" alt="" /></a>
-									<a href="" class="w-7.5 h-7.5 flex items-center justify-center"><img src="assets/img/icon/down-load.svg" alt="" /></a>
-									<a href="" class="w-7.5 h-7.5 flex items-center justify-center"><img src="assets/img/icon/up-load.svg" alt="" /></a>
-								</div>
-							</div>
+						<div class="w-full md:w-1/3 bg-text-fg text-white rounded-xl text-center p-6">
+							<i class="block w-9 h-9 content-center mx-auto mb-4"><img src="assets/img/icon/vr-lg.svg" alt="" /></i>
+							<h6 class="text-[17px] font-bold mb-2">VR Gallery</h6>
+							<p class="leading-[24px] max-w-[320px] mx-auto text-[#D1D5DB] text-[13px]">Experience your paintings in a virtual reality art gallery.</p>
 						</div>
-						<div class="bg-[#202936] rounded-xl overflow-hidden">
-							<picture class="h-[376px] overflow-hidden">
-								<img src="assets/img/past-oil-3.png" alt="" />
-							</picture>
-							<div class="p-3.5">
-								<h6 class="text-[15px] font-semibold mb-1.5">Seashore Waves</h6>
-								<p class="text-[11px] text-[#9CA3AF] mb-3">July 22, 2025</p>
-								<div class="flex items-center justify-between">
-									<a href="" class="w-7.5 h-7.5 flex items-center justify-center"><img src="assets/img/icon/eye.svg" alt="" /></a>
-									<a href="" class="w-7.5 h-7.5 flex items-center justify-center"><img src="assets/img/icon/down-load.svg" alt="" /></a>
-									<a href="" class="w-7.5 h-7.5 flex items-center justify-center"><img src="assets/img/icon/up-load.svg" alt="" /></a>
-								</div>
-							</div>
+						<div class="w-full md:w-1/3 bg-text-fg text-white rounded-xl text-center p-6">
+							<i class="block w-9 h-9 content-center mx-auto mb-4"><img src="assets/img/icon/phn-lg.svg" alt="" /></i>
+							<h6 class="text-[17px] font-bold mb-2">AR View</h6>
+							<p class="leading-[24px] max-w-[320px] mx-auto text-[#D1D5DB] text-[13px]">Use augmented reality to see your paintings in real-world spaces.</p>
 						</div>
-						<div class="bg-[#202936] rounded-xl overflow-hidden">
-							<picture class="h-[376px] overflow-hidden">
-								<img src="assets/img/past-oil-4.png" alt="" />
-							</picture>
-							<div class="p-3.5">
-								<h6 class="text-[15px] font-semibold mb-1.5">Abstract Emotions</h6>
-								<p class="text-[11px] text-[#9CA3AF] mb-3">July 22, 2025</p>
-								<div class="flex items-center justify-between">
-									<a href="" class="w-7.5 h-7.5 flex items-center justify-center"><img src="assets/img/icon/eye.svg" alt="" /></a>
-									<a href="" class="w-7.5 h-7.5 flex items-center justify-center"><img src="assets/img/icon/down-load.svg" alt="" /></a>
-									<a href="" class="w-7.5 h-7.5 flex items-center justify-center"><img src="assets/img/icon/up-load.svg" alt="" /></a>
-								</div>
-							</div>
-						</div>
-						<div class="bg-[#202936] rounded-xl overflow-hidden">
-							<picture class="h-[376px] overflow-hidden">
-								<img src="assets/img/past-oil-5.png" alt="" />
-							</picture>
-							<div class="p-3.5">
-								<h6 class="text-[15px] font-semibold mb-1.5">Forest Dreams</h6>
-								<p class="text-[11px] text-[#9CA3AF] mb-3">July 22, 2025</p>
-								<div class="flex items-center justify-between">
-									<a href="" class="w-7.5 h-7.5 flex items-center justify-center"><img src="assets/img/icon/eye.svg" alt="" /></a>
-									<a href="" class="w-7.5 h-7.5 flex items-center justify-center"><img src="assets/img/icon/down-load.svg" alt="" /></a>
-									<a href="" class="w-7.5 h-7.5 flex items-center justify-center"><img src="assets/img/icon/up-load.svg" alt="" /></a>
-								</div>
-							</div>
-						</div>
-						<div class="bg-[#202936] rounded-xl overflow-hidden">
-							<picture class="h-[376px] overflow-hidden">
-								<img src="assets/img/past-oil-6.png" alt="" />
-							</picture>
-							<div class="p-3.5">
-								<h6 class="text-[15px] font-semibold mb-1.5">Urban Solitude</h6>
-								<p class="text-[11px] text-[#9CA3AF] mb-3">July 22, 2025</p>
-								<div class="flex items-center justify-between">
-									<a href="" class="w-7.5 h-7.5 flex items-center justify-center"><img src="assets/img/icon/eye.svg" alt="" /></a>
-									<a href="" class="w-7.5 h-7.5 flex items-center justify-center"><img src="assets/img/icon/down-load.svg" alt="" /></a>
-									<a href="" class="w-7.5 h-7.5 flex items-center justify-center"><img src="assets/img/icon/up-load.svg" alt="" /></a>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="flex items-center justify-center gap-4 mt-12 flex-col">
-						<a href="" class="theme-border-btn border-[#4B5563]! bg-transparent! text-white! flex! gap-2 w-max"> Load More</a>
-						<a href="" class="theme-btn flex! gap-2"><img src="assets/img/icon/plus.svg" alt="" class="inline-block" /> Create New Painting</a>
 					</div>
 				</div>
 			</section>
 			<!--  section end -->
 
 			<!--  section start -->
-			<section class="">
-				<div class="container">
-					<div class=""></div>
+			<section class="pt-0 md:pt-20 lg:pt-25 bg-white">
+				<div class="bg-[#F9FAFB] py-19 max-w-[1360px] mx-auto pb-19">
+					<div class="container">
+						<div class="mb-10">
+							<h1 class="font-bold text-3xl md:text-[40px] mb-4">Gallery of Creations</h1>
+							<div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-3 md:gap-0">
+								<p class="m-0 text-[14px] text-[#4B5563] leading-6">Explore past transformations and get inspired by what others have created.</p>
+								<a href="" class="flex gap-2 items-center text-xs text-[#4F46E5] font-medium group">View All Works <img src="assets/img/icon/right-icon.svg" alt="" class="group-hover:translate-x-[5px] transition-all duration-200" /></a>
+							</div>
+						</div>
+						<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+							<div class="">
+								<picture class="h-50 md:h-45 lg:h-70 w-full block overflow-hidden rounded-tl-xl rounded-tr-xl"><img src="assets/img/gallery-img-1.png" alt="" class="w-full h-full object-cover" /></picture>
+								<div class="p-4 shadow-[0_3px_6px_#0000001A] rounded-bl-xl rounded-br-xl">
+									<h6 class="font-bold text-[16px] mb-2">Coastal Sunset</h6>
+									<ul class="flex gap-1 mb-3">
+										<li><button type="button" class="w-5.5 h-5.5 border border-solid border-[#E5E7EB] rounded-full bg-[#E8846B] block"></button></li>
+										<li><button type="button" class="w-5.5 h-5.5 border border-solid border-[#E5E7EB] rounded-full bg-[#D9A76A] block"></button></li>
+										<li><button type="button" class="w-5.5 h-5.5 border border-solid border-[#E5E7EB] rounded-full bg-[#7192BE] block"></button></li>
+										<li><button type="button" class="w-5.5 h-5.5 border border-solid border-[#E5E7EB] rounded-full bg-[#3A4A6B] block"></button></li>
+										<li><button type="button" class="w-5.5 h-5.5 border border-solid border-[#E5E7EB] rounded-full bg-[#222D42] block"></button></li>
+									</ul>
+									<div class="flex items-center justify-between">
+										<p class="m-0 text-[11px] text-[#6B7280]">5 colors extracted</p>
+										<a href="" class="text-[#4F46E5] hover:text-theme transition-all duration-200 text-[11px] font-medium">View Details</a>
+									</div>
+								</div>
+							</div>
+							<div class="">
+								<picture class="h-50 md:h-45 lg:h-70 w-full block overflow-hidden rounded-tl-xl rounded-tr-xl"><img src="assets/img/gallery-img-2.png" alt="" class="w-full h-full object-cover" /></picture>
+								<div class="p-4 shadow-[0_3px_6px_#0000001A] rounded-bl-xl rounded-br-xl">
+									<h6 class="font-bold text-[16px] mb-2">Mountain Range</h6>
+									<ul class="flex gap-1 mb-3">
+										<li><button type="button" class="w-5.5 h-5.5 border border-solid border-[#E5E7EB] rounded-full bg-[#748E63] block"></button></li>
+										<li><button type="button" class="w-5.5 h-5.5 border border-solid border-[#E5E7EB] rounded-full bg-[#3D5A45] block"></button></li>
+										<li><button type="button" class="w-5.5 h-5.5 border border-solid border-[#E5E7EB] rounded-full bg-[#A4B494] block"></button></li>
+										<li><button type="button" class="w-5.5 h-5.5 border border-solid border-[#E5E7EB] rounded-full bg-[#EFF0D1] block"></button></li>
+										<li><button type="button" class="w-5.5 h-5.5 border border-solid border-[#E5E7EB] rounded-full bg-[#D8D4D5] block"></button></li>
+									</ul>
+									<div class="flex items-center justify-between">
+										<p class="m-0 text-[11px] text-[#6B7280]">5 colors extracted</p>
+										<a href="" class="text-[#4F46E5] hover:text-theme transition-all duration-200 text-[11px] font-medium">View Details</a>
+									</div>
+								</div>
+							</div>
+							<div class="">
+								<picture class="h-50 md:h-45 lg:h-70 w-full block overflow-hidden rounded-tl-xl rounded-tr-xl"><img src="assets/img/gallery-img-3.png" alt="" class="w-full h-full object-cover" /></picture>
+								<div class="p-4 shadow-[0_3px_6px_#0000001A] rounded-bl-xl rounded-br-xl">
+									<h6 class="font-bold text-[16px] mb-2">Abstract Portrait</h6>
+									<ul class="flex gap-1 mb-3">
+										<li><button type="button" class="w-5.5 h-5.5 border border-solid border-[#E5E7EB] rounded-full bg-[#7D5BA6] block"></button></li>
+										<li><button type="button" class="w-5.5 h-5.5 border border-solid border-[#E5E7EB] rounded-full bg-[#6F9CEB] block"></button></li>
+										<li><button type="button" class="w-5.5 h-5.5 border border-solid border-[#E5E7EB] rounded-full bg-[#DDACF5] block"></button></li>
+										<li><button type="button" class="w-5.5 h-5.5 border border-solid border-[#E5E7EB] rounded-full bg-[#CBE2F6] block"></button></li>
+										<li><button type="button" class="w-5.5 h-5.5 border border-solid border-[#E5E7EB] rounded-full bg-[#F5E2F4] block"></button></li>
+									</ul>
+									<div class="flex items-center justify-between">
+										<p class="m-0 text-[11px] text-[#6B7280]">5 colors extracted</p>
+										<a href="" class="text-[#4F46E5] hover:text-theme transition-all duration-200 text-[11px] font-medium">View Details</a>
+									</div>
+								</div>
+							</div>
+							<div class="">
+								<picture class="h-50 md:h-45 lg:h-70 w-full block overflow-hidden rounded-tl-xl rounded-tr-xl"><img src="assets/img/gallery-img-4.png" alt="" class="w-full h-full object-cover" /></picture>
+								<div class="p-4 shadow-[0_3px_6px_#0000001A] rounded-bl-xl rounded-br-xl">
+									<h6 class="font-bold text-[16px] mb-2">Urban Landscape</h6>
+									<ul class="flex gap-1 mb-3">
+										<li><button type="button" class="w-5.5 h-5.5 border border-solid border-[#E5E7EB] rounded-full bg-[#2D4654] block"></button></li>
+										<li><button type="button" class="w-5.5 h-5.5 border border-solid border-[#E5E7EB] rounded-full bg-[#506D84] block"></button></li>
+										<li><button type="button" class="w-5.5 h-5.5 border border-solid border-[#E5E7EB] rounded-full bg-[#91B3BC] block"></button></li>
+										<li><button type="button" class="w-5.5 h-5.5 border border-solid border-[#E5E7EB] rounded-full bg-[#DDDEDE] block"></button></li>
+										<li><button type="button" class="w-5.5 h-5.5 border border-solid border-[#E5E7EB] rounded-full bg-[#EEF0F2] block"></button></li>
+									</ul>
+									<div class="flex items-center justify-between">
+										<p class="m-0 text-[11px] text-[#6B7280]">5 colors extracted</p>
+										<a href="" class="text-[#4F46E5] hover:text-theme transition-all duration-200 text-[11px] font-medium">View Details</a>
+									</div>
+								</div>
+							</div>
+							<div class="">
+								<picture class="h-50 md:h-45 lg:h-70 w-full block overflow-hidden rounded-tl-xl rounded-tr-xl"><img src="assets/img/gallery-img-5.png" alt="" class="w-full h-full object-cover" /></picture>
+								<div class="p-4 shadow-[0_3px_6px_#0000001A] rounded-bl-xl rounded-br-xl">
+									<h6 class="font-bold text-[16px] mb-2">Summer Garden</h6>
+									<ul class="flex gap-1 mb-3">
+										<li><button type="button" class="w-5.5 h-5.5 border border-solid border-[#E5E7EB] rounded-full bg-[#FE5F55] block"></button></li>
+										<li><button type="button" class="w-5.5 h-5.5 border border-solid border-[#E5E7EB] rounded-full bg-[#F0B67F] block"></button></li>
+										<li><button type="button" class="w-5.5 h-5.5 border border-solid border-[#E5E7EB] rounded-full bg-[#D6D1B1] block"></button></li>
+										<li><button type="button" class="w-5.5 h-5.5 border border-solid border-[#E5E7EB] rounded-full bg-[#C7EFCF] block"></button></li>
+										<li><button type="button" class="w-5.5 h-5.5 border border-solid border-[#E5E7EB] rounded-full bg-[#EEF5DB] block"></button></li>
+									</ul>
+									<div class="flex items-center justify-between">
+										<p class="m-0 text-[11px] text-[#6B7280]">5 colors extracted</p>
+										<a href="" class="text-[#4F46E5] hover:text-theme transition-all duration-200 text-[11px] font-medium">View Details</a>
+									</div>
+								</div>
+							</div>
+							<div class="">
+								<picture class="h-50 md:h-45 lg:h-70 w-full block overflow-hidden rounded-tl-xl rounded-tr-xl"><img src="assets/img/gallery-img-6.png" alt="" class="w-full h-full object-cover" /></picture>
+								<div class="p-4 shadow-[0_3px_6px_#0000001A] rounded-bl-xl rounded-br-xl">
+									<h6 class="font-bold text-[16px] mb-2">Coastal Sunset</h6>
+									<ul class="flex gap-1 mb-3">
+										<li><button type="button" class="w-5.5 h-5.5 border border-solid border-[#E5E7EB] rounded-full bg-[#8D230F] block"></button></li>
+										<li><button type="button" class="w-5.5 h-5.5 border border-solid border-[#E5E7EB] rounded-full bg-[#C1292E] block"></button></li>
+										<li><button type="button" class="w-5.5 h-5.5 border border-solid border-[#E5E7EB] rounded-full bg-[#F1D302] block"></button></li>
+										<li><button type="button" class="w-5.5 h-5.5 border border-solid border-[#E5E7EB] rounded-full bg-[#EDAE01] block"></button></li>
+										<li><button type="button" class="w-5.5 h-5.5 border border-solid border-[#E5E7EB] rounded-full bg-[#1A281F] block"></button></li>
+									</ul>
+									<div class="flex items-center justify-between">
+										<p class="m-0 text-[11px] text-[#6B7280]">5 colors extracted</p>
+										<a href="" class="text-[#4F46E5] hover:text-theme transition-all duration-200 text-[11px] font-medium">View Details</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</section>
 			<!--  section end -->
 		</main>
 
 		<footer class="bg-[#111827] text-white">
-			<div class="bg-text-fg text-center py-16 flex flex-col gap-4">
-				<h1 class="text-2xl md:text-3xl mb-0">Ready to Create Your Masterpiece?</h1>
-				<p class="mb-4 text-[#D1D5DB] text-[13px]">Upload your photo or enter a prompt to get started.</p>
-				<a href="" class="theme-btn mx-auto px-8!">Start Creating Now</a>
-			</div>
-			<div class="container py-12">
-				<div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-0">
-					<div class="">
-						<ul>
-							<li><h6 class="text-[15px] font-semibold mb-3 md:mb-4">Company</h6></li>
-							<li><a href="" class="block text-[13px] text-[#D1D5DB] mb-3">About</a></li>
-							<li><a href="" class="block text-[13px] text-[#D1D5DB] mb-3">Blog</a></li>
-							<li><a href="" class="block text-[13px] text-[#D1D5DB]">Careers</a></li>
+			<div class="container py-12 max-w-[1360px]!">
+				<div class="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-0">
+					<div class="col-span-2 mb-5 md:mb-0">
+						<h6 class="text-[20px] font-bold mb-4">ArtAlchemy</h6>
+						<p class="text-[13px] text-[#D1D5DB] leading-6 mb-6">
+							Transform your photos into stunning oil paintings and discover <br class="hidden md:block" />
+							hidden color palettes with our AI-powered tools.
+						</p>
+						<ul class="flex items-center gap-4">
+							<li>
+								<a href="" class="block hover:transform hover:scale-125"><img src="assets/img/icon/fb.svg" alt="" /></a>
+							</li>
+							<li>
+								<a href="" class="block hover:transform hover:scale-125"><img src="assets/img/icon/tw-x.svg" alt="" /></a>
+							</li>
+							<li>
+								<a href="" class="block hover:transform hover:scale-125"><img src="assets/img/icon/social-3.svg" alt="" /></a>
+							</li>
 						</ul>
 					</div>
 					<div class="">
 						<ul>
-							<li><h6 class="text-[15px] font-semibold mb-3 md:mb-4">Product</h6></li>
-							<li><a href="" class="text-[13px] text-[#D1D5DB] mb-3">Features</a></li>
-							<li><a href="" class="text-[13px] text-[#D1D5DB] mb-3">Pricing</a></li>
-							<li><a href="" class="text-[13px] text-[#D1D5DB]">Gallery</a></li>
+							<li><h6 class="text-[15px] font-semibold mb-3 md:mb-4">Quick Links</h6></li>
+							<li><a href="" class="hover:text-theme block text-[13px] text-[#D1D5DB] mb-3">Home</a></li>
+							<li><a href="" class="hover:text-theme block text-[13px] text-[#D1D5DB] mb-3">About Us</a></li>
+							<li><a href="" class="hover:text-theme block text-[13px] text-[#D1D5DB] mb-3">Features</a></li>
+							<li><a href="" class="hover:text-theme block text-[13px] text-[#D1D5DB] mb-3">Pricing</a></li>
+							<li><a href="" class="hover:text-theme block text-[13px] text-[#D1D5DB]">Gallery</a></li>
 						</ul>
 					</div>
 					<div class="">
 						<ul>
-							<li><h6 class="text-[15px] font-semibold mb-3 md:mb-4">Support</h6></li>
-							<li><a href="" class="text-[13px] text-[#D1D5DB] mb-3">FAQ</a></li>
-							<li><a href="" class="text-[13px] text-[#D1D5DB] mb-3">Contact</a></li>
-							<li><a href="" class="text-[13px] text-[#D1D5DB]">Terms & Privacy</a></li>
+							<li><h6 class="block text-[15px] font-semibold mb-3 md:mb-4">Legal</h6></li>
+							<li><a href="" class="hover:text-theme block text-[13px] text-[#D1D5DB] mb-3">Terms of Service</a></li>
+							<li><a href="" class="hover:text-theme block text-[13px] text-[#D1D5DB] mb-3">Privacy Policy</a></li>
+							<li><a href="" class="hover:text-theme block text-[13px] text-[#D1D5DB] mb-3">Cookie Policy</a></li>
+							<li><a href="" class="hover:text-theme block text-[13px] text-[#D1D5DB] mb-3">GDPR</a></li>
+							<li><a href="" class="hover:text-theme block text-[13px] text-[#D1D5DB]">Contact Us</a></li>
 						</ul>
 					</div>
 				</div>
 			</div>
-			<hr class="bg-[#374151] border-[#374151] mb-6" />
-			<div class="container pb-4">
+			<div class="container max-w-[1360px]!">
+				<hr class="bg-[#374151] border-[#374151] mb-6" />
+			</div>
+			<div class="container pb-4 max-w-[1360px]!">
 				<div class="flex flex-col md:flex-row items-center justify-between gap-3 md:gap-0">
-					<h6 class="text-[17px] font-semibold">YourBrand</h6>
 					<p class="mb-0 text-[12px] text-[#D1D5DB] order-1 md:order-0">© 2025 YourBrand. All rights reserved.</p>
-					<ul class="flex items-center justify-end gap-4">
-						<li>
-							<a href=""><img src="assets/img/icon/social-1.svg" alt="" /></a>
-						</li>
-						<li>
-							<a href=""><img src="assets/img/icon/social-2.svg" alt="" /></a>
-						</li>
-						<li>
-							<a href=""><img src="assets/img/icon/social-3.svg" alt="" /></a>
-						</li>
-					</ul>
+					<a href="" class="theme-btn rounded-full!">Get Started</a>
 				</div>
 			</div>
 		</footer>

@@ -42,10 +42,11 @@
 		@apply px-4 mx-auto 2xl:max-w-[1256px];
 	}
 	.theme-btn {
-		@apply inline-block bg-[var(--color-theme)] text-white font-medium text-[13px] py-3.5 px-6 rounded-md capitalize text-center;
+		@apply inline-block bg-theme border border-solid border-theme    text-white font-medium text-[13px] leading-5 py-3 px-6 rounded-md capitalize text-center hover:bg-transparent hover:text-theme transition-all duration-300;
 	}
+
 	.theme-border-btn {
-		@apply inline-block bg-white text-text-fg font-medium text-[13px]  box-border py-3 px-6 rounded-md capitalize border border-solid border-[#D1D5DB] text-center;
+		@apply inline-block bg-white text-text-fg font-medium text-[13px]  box-border py-3 px-6 rounded-md capitalize border border-solid border-[#D1D5DB] text-center hover:bg-[#F2F5FF] transition-all duration-300;
 	}
 	.bg-custom-gradient {
 		@apply bg-[linear-gradient(180deg,#171F29_0%,#030405_100%)];
